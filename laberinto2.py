@@ -13,7 +13,7 @@ def hallar_x(matriz,iteracion=0):
 
 def generar_arbol(m,x,y,a=[]):
     try:
-        if m[x][y]=='0' and [x,y] not in a:
+        if (m[x][y]=='0' or m[x][y]=='x') and [x,y] not in a:
             return Nodo(m[x][y],[generar_arbol(m,x+1,y,a+[[x,y]])]+[generar_arbol(m,x-1,y,a+[[x,y]])]+[generar_arbol(m,x,y+1,a+[[x,y]])]+[generar_arbol(m,x,y-1,a+[[x,y]])])
         elif m[x][y]=='y':
             return Nodo('y')
